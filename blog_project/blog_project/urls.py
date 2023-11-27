@@ -22,7 +22,7 @@ from django.contrib.sitemaps.views import sitemap
 from .sitemaps import CategortSiteMap, PostSiteMap
 
 
-from core.views import frontpage, about
+from core.views import frontpage, about, robots_txt
 
 
 sitemaps = {
@@ -32,6 +32,7 @@ sitemaps = {
 
 urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}),
+    path('robots.txt', robots_txt, name="robots_txt"),
     path('admin/', admin.site.urls),
     path('about/', about, name="about"),
     path('', include('blog.urls')),
