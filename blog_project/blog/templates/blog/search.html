@@ -2,7 +2,7 @@
 
 
 {% block title %}
-{{category.title}} |
+{{search}} |
 {% endblock %}
 
 {% block content %}
@@ -12,6 +12,10 @@
             <section class="section">
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
+                        <div class="content is-medium">
+                            <h1>Search results</h1>
+                            <h3>for: "{{query}}"</h3>
+                        </div>
                         {% for post in posts %}
                         <div class="content is-medium">
                             <a href="{% url 'post_detail' post.category.slug post.slug %}">
@@ -22,7 +26,7 @@
                         </div>
                         {% empty %}
                         <div class="content">
-                            <p>No posts yet.</p>
+                            <p>No results for that query.</p>
                         </div>
                         {% endfor %}
                     </div>
