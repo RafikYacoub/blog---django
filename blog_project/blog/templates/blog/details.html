@@ -12,7 +12,11 @@
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="content is-medium">
-
+                            {% if post.image %}
+                            <figure class="image mb-6">
+                                <img src="{{post.image.url}}" alt="{{post.title}}">
+                            </figure>
+                            {% endif %}
                             <h2 class="subtitle is-4">{{post.date|date:'d-M-Y'}} - {{post.date|timesince}} ago</h2>
 
                             <h1 class="title">{{ post.title }}</h1>
